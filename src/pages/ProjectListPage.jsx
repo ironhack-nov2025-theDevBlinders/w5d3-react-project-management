@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 
 import Loader from "../components/Loader";
 
+import { BASE_URL } from "../config/api";
+
+
 
 function ProjectListPage() {
 
     const [projects, setProjects] = useState(null)
 
     useEffect(() => {
-        axios.get("https://project-management-api.edu.ironhack.com/projects")
+        axios.get(BASE_URL + "/projects")
             .then((response) => {
                 setProjects(response.data)
             })
